@@ -7,7 +7,7 @@ import CardsListContainer from '../../containers/CardsListContainer';
 
 import { toggleFilter } from '../../reducers/cardsSlice';
 
-import filterStyles from '../../assets/styles/Filter.module.scss';
+import filterStyles from '../../assets/styles/filter.module.scss';
 import '../../assets/styles/styles.scss';
 
 function App() {
