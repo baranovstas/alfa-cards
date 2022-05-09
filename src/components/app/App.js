@@ -19,7 +19,7 @@ function App() {
     ({ cards: { isFilteredByLikes } }) => isFilteredByLikes
   );
 
-  const { App, filter, filter_active } = cardsStyles;
+  const { App, filter, filter_active, hidden } = cardsStyles;
 
   const filterBtnClasses = isFilteredByLikes ?
     `${filter} ${filter_active}` :
@@ -32,6 +32,9 @@ function App() {
   return (
     <div className={App}>
       <main>
+        <h1 className={hidden}>
+          Тестовое задание на junior frontend-разработчика в Альфа-банк
+        </h1>
         <Section className='cards' title='Список карточек'>
           <Button
             className={filterBtnClasses}
