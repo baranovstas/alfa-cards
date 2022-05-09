@@ -21,7 +21,13 @@ function CardsItemContainer({ id, text, ...props }) {
     ({ cards: { likedCards } }) => likedCards
   );
 
-  const { btn, btn_like, btn_delete, icon } = cardsItemStyles;
+  const {
+    btn,
+    btn_like,
+    btn_delete,
+    icon,
+    ...anotherCardsItemStyles
+  } = cardsItemStyles;
 
   const likeBtnIcon = likedCards.includes(id) ?
     <Icon icon={faHeartSolid} className={icon} /> :
@@ -70,6 +76,7 @@ function CardsItemContainer({ id, text, ...props }) {
   return (
     <CardsItem
       id={id}
+      cardsItemStyles={anotherCardsItemStyles}
       text={cardsText}
       btnsGroup={btnsGroup}
       {...props}

@@ -1,8 +1,11 @@
 import Image from '../image/Image';
-import cardsItemStyles from './СardsItem.module.scss';
 
-function CardsItem({ text, url, btnsGroup }) {
-  const { item, figure, img, btns } = cardsItemStyles;
+function CardsItem({
+  text,
+  url,
+  btnsGroup,
+  cardsItemStyles: { item, figure, img, btns }
+}) {
   return (
     <li className={item}>
       <figure className={figure}>

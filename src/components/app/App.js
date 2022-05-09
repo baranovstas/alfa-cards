@@ -7,7 +7,7 @@ import CardsListContainer from '../../containers/CardsListContainer';
 
 import { toggleFilter } from '../../reducers/cardsSlice';
 
-import cardsStyles from '../../assets/styles/cards.module.scss';
+import filterStyles from '../../assets/styles/Filter.module.scss';
 import '../../assets/styles/styles.scss';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
     ({ cards: { isFilteredByLikes } }) => isFilteredByLikes
   );
 
-  const { App, filter, filter_active, hidden } = cardsStyles;
+  const { filter, filter_active } = filterStyles;
 
   const filterBtnClasses = isFilteredByLikes ?
     `${filter} ${filter_active}` :
@@ -30,9 +30,9 @@ function App() {
   if (error) return <ErrorMessage errorMessage={error} />;
 
   return (
-    <div className={App}>
+    <div className='App'>
       <main>
-        <h1 className={hidden}>
+        <h1 className='visually-hidden'>
           Тестовое задание на junior frontend-разработчика в Альфа-банк
         </h1>
         <Section className='cards' title='Список карточек'>
