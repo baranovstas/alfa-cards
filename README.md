@@ -22,6 +22,7 @@
 - Redux Toolkit
 - Axios
 - SCSS
+- CSS Modules
 - gh-pages
 - JSONPlaceholder API
 
