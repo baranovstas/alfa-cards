@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/alfa-cards/static/css/main.92fedf8c.css",
-    "main.js": "/alfa-cards/static/js/main.3e7d1539.js",
+    "main.css": "/alfa-cards/static/css/main.8518ca9e.css",
+    "main.js": "/alfa-cards/static/js/main.dd00a017.js",
     "static/media/error.gif": "/alfa-cards/static/media/error.42292aa12b6bc303ce99.gif",
     "index.html": "/alfa-cards/index.html",
-    "main.92fedf8c.css.map": "/alfa-cards/static/css/main.92fedf8c.css.map",
-    "main.3e7d1539.js.map": "/alfa-cards/static/js/main.3e7d1539.js.map"
+    "main.8518ca9e.css.map": "/alfa-cards/static/css/main.8518ca9e.css.map",
+    "main.dd00a017.js.map": "/alfa-cards/static/js/main.dd00a017.js.map"
   },
   "entrypoints": [
-    "static/css/main.92fedf8c.css",
-    "static/js/main.3e7d1539.js"
+    "static/css/main.8518ca9e.css",
+    "static/js/main.dd00a017.js"
   ]
 }
