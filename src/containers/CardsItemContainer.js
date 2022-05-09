@@ -12,7 +12,7 @@ import Icon from '../components/icon/Icon';
 
 import * as cardsActions from '../reducers/cardsSlice';
 
-import '../components/cardsItem/cardsItem.scss';
+import cardsItemStyles from '../components/cardsItem/СardsItem.module.scss';
 
 function CardsItemContainer({ id, text, ...props }) {
   const dispatch = useDispatch();
@@ -21,12 +21,14 @@ function CardsItemContainer({ id, text, ...props }) {
     ({ cards: { likedCards } }) => likedCards
   );
 
+  const { btn, btn_like, btn_delete, icon } = cardsItemStyles;
+
   const likeBtnIcon = likedCards.includes(id) ?
-    <Icon icon={faHeartSolid} className='cards__icon' /> :
-    <Icon icon={faHeartRegular} className='cards__icon' />;
+    <Icon icon={faHeartSolid} className={icon} /> :
+    <Icon icon={faHeartRegular} className={icon} />;
 
   const deleteBtnIcon = (
-    <Icon icon={faTrash} className='cards__icon' />
+    <Icon icon={faTrash} className={icon} />
   );
 
   const { likeCard, deleteCard } = bindActionCreators(
@@ -35,13 +37,13 @@ function CardsItemContainer({ id, text, ...props }) {
 
   const btnsGroupData = [
     {
-      className: 'cards__btn_like',
+      className: btn_like,
       label: 'Поставить лайк на карточку',
       clickHandler: () => likeCard(id),
       children: likeBtnIcon
     },
     {
-      className: 'cards__btn_delete',
+      className: btn_delete,
       label: 'Удалить карточку',
       clickHandler: () => deleteCard(id),
       children: deleteBtnIcon
@@ -54,7 +56,7 @@ function CardsItemContainer({ id, text, ...props }) {
         <Button
           key={label}
           clickHandler={clickHandler}
-          className={`cards__btn ${className}`}
+          className={`${btn} ${className}`}
           label={label}
         >
           {children}

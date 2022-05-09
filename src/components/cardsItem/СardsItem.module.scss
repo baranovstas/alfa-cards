@@ -1,0 +1,95 @@
+@import "../../assets/styles/vars.scss";
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 12px;
+  background-color: #876445;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.figure {
+  display: flex;
+  align-items: center;
+  padding-right: 30px;
+}
+
+.img {
+  margin-right: 30px;
+  width: 80px;
+  height: 80px;
+}
+
+.btns {
+  display: flex;
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, background-image 0.3s ease;
+  &_like {
+    background-color: $lghtBlue;
+    &:hover {
+      background-color: #4e4c77;
+    }
+    &:active {
+      background-color: #434164;
+    }
+  }
+  &_delete {
+    background-color: #b82612;
+    &:hover {
+      background-color: #7a1a0d;
+    }
+    &:active {
+      background-color: #5f140a;
+    }
+  }
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  .item {
+    padding: 8px;
+  }
+  .figure {
+    padding-right: 10px;
+  }
+  .img {
+    width: 65px;
+    height: 65px;
+    margin-right: 10px;
+  }
+  .btn {
+    padding: 5px;
+    &_like {
+      &:hover {
+        background-color: $lghtBlue;
+      }
+    }
+    &_delete {
+      &:hover {
+        background-color: #b82612;
+      }
+    }
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+  }
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}

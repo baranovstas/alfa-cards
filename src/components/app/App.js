@@ -7,6 +7,7 @@ import CardsListContainer from '../../containers/CardsListContainer';
 
 import { toggleFilter } from '../../reducers/cardsSlice';
 
+import cardsStyles from '../../assets/styles/cards.module.scss';
 import '../../assets/styles/styles.scss';
 
 function App() {
@@ -18,16 +19,18 @@ function App() {
     ({ cards: { isFilteredByLikes } }) => isFilteredByLikes
   );
 
+  const { App, filter, filter_active } = cardsStyles;
+
   const filterBtnClasses = isFilteredByLikes ?
-    'cards__filter cards__filter_active' :
-    'cards__filter';
+    `${filter} ${filter_active}` :
+    filter;
 
   const onFilterCards = () => dispatch(toggleFilter());
 
   if (error) return <ErrorMessage errorMessage={error} />;
 
   return (
-    <div className='App'>
+    <div className={App}>
       <main>
         <Section className='cards' title='Список карточек'>
           <Button

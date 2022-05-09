@@ -1,20 +1,21 @@
 import Image from '../image/Image';
+import cardsItemStyles from './СardsItem.module.scss';
 
-function CardsItem({ text, url, btnsGroup, id }) {
+function CardsItem({ text, url, btnsGroup }) {
+  const { item, figure, img, btns } = cardsItemStyles;
   return (
-    <li className='cards__item'>
-      <figure className='cards__figure'>
+    <li className={item}>
+      <figure className={figure}>
         <Image
-          className='cards__img'
+          className={img}
           src={url}
           alt={text}
         />
-        <figcaption className='cards__figcaption'>
-          <p className='cards__text'>{text}</p>
-          {/* <p className='cards__text'>{id}. {text}</p> */}
+        <figcaption>
+          <p>{text}</p>
         </figcaption>
       </figure>
-      <div className='cards__btns'>
+      <div className={btns}>
         {btnsGroup}
       </div>
     </li>
