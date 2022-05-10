@@ -23,6 +23,7 @@
 - Axios
 - SCSS
 - CSS Modules
+- FontAwesomeIcon
 - gh-pages
 - JSONPlaceholder API
 
