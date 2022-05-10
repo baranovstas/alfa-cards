@@ -21,6 +21,7 @@ function App() {
 
   const { filter, filter_active } = filterStyles;
 
+  // проверка св-ва isFilteredByLikes для добавления соответствующего класса кнопке фильтрации, чтобы она подсвечивалась, в случае, если фильтр активен
   const filterBtnClasses = isFilteredByLikes ?
     `${filter} ${filter_active}` :
     filter;

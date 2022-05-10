@@ -29,6 +29,7 @@ function CardsItemContainer({ id, text, ...props }) {
     ...anotherCardsItemStyles
   } = cardsItemStyles;
 
+  // проверка присутствия id элемента в массиве лайкнутых карточек, чтобы отобразить либо закрашенную иконку лайка (лайк нажат), либо пустую
   const likeBtnIcon = likedCards.includes(id) ?
     <Icon icon={faHeartSolid} className={icon} /> :
     <Icon icon={faHeartRegular} className={icon} />;

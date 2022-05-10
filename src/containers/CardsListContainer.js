@@ -17,6 +17,10 @@ function CardsListContainer() {
     ({ cards: { cardsData } }) => cardsData
   );
 
+  const isFetched = useSelector(
+    ({ cards: { isFetched } }) => isFetched
+  );
+
   const likedCards = useSelector(
     ({ cards: { likedCards } }) => likedCards
   );
@@ -29,8 +33,9 @@ function CardsListContainer() {
     dispatch(fetchCardsData());
   }, [dispatch]);
 
-  if (!cards) return <Spinner />;
+  if (!isFetched) return <Spinner />;
 
+  // следующие условия проверяют весь массив с данными и массив лайкнутых карточек, чтобы показать пользователю соответствующее уведомление - если карточек не осталось в принципе и если в массиве данных карточки есть, но при этом нет именно лайкнутых карточек 
   if (!cardsData.length) {
     return <Notification text='Все карточки удалены' />;
   }

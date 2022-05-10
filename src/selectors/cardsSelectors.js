@@ -27,6 +27,7 @@ const selectCards = createSelector(
   selectIsFetched,
   (cardsData, likedCards, isFilteredByLikes, isFetched) => {
     if (isFetched) {
+      // проверка св-ва isFilteredByLikes, в зависимости от него, массив данных о карточках отфильтруется только по  лайкнутым, в ином случае для преобразования уйдёт исходный массив
       const visibleData = isFilteredByLikes ?
         cardsData.filter(
           ({ id }) => likedCards.includes(id)
