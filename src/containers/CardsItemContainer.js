@@ -42,6 +42,7 @@ function CardsItemContainer({ id, text, ...props }) {
     cardsActions, dispatch
   );
 
+  // подготовка данных для группы кнопок в карточке
   const btnsGroupData = [
     {
       className: btn_like,
@@ -57,6 +58,7 @@ function CardsItemContainer({ id, text, ...props }) {
     },
   ];
 
+  // преобразование данных о группе кнопок в массив компонентов для отображения в интерфейсе
   const btnsGroup = btnsGroupData.map(
     function ({ clickHandler, className, label, children }) {
       return (
