@@ -2,10 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.img {
-  margin-bottom: 20px;
-  width: 250px;
-  height: 250px;
+  &__img {
+    margin-bottom: 20px;
+    width: 250px;
+    height: 250px;
+  }
 }
