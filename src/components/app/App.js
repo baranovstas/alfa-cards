@@ -1,49 +1,23 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import Button from '../button/Button';
-import Section from '../../layouts/Section';
-import ErrorMessage from '../errorMessage/ErrorMessage';
-import CardsListContainer from '../../containers/CardsListContainer';
+import Header from '../../layouts/Header/Header';
+import Section from '../../layouts/Section/Section';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import CoffeeListContainer from '../../containers/CoffeeListContainer';
 
-import { toggleFilter } from '../../reducers/cardsSlice';
-
-import filterStyles from '../../assets/styles/filter.module.scss';
 import '../../assets/styles/styles.scss';
 
 function App() {
-  const dispatch = useDispatch();
-
-  const error = useSelector(({ cards: { error } }) => error);
-
-  const isFilteredByLikes = useSelector(
-    ({ cards: { isFilteredByLikes } }) => isFilteredByLikes
-  );
-
-  const { filter, filter_active } = filterStyles;
-
-  // проверка св-ва isFilteredByLikes для добавления соответствующего класса кнопке фильтрации, чтобы она подсвечивалась, в случае, если фильтр активен
-  const filterBtnClasses = isFilteredByLikes ?
-    `${filter} ${filter_active}` :
-    filter;
-
-  const onFilterCards = () => dispatch(toggleFilter());
+  const error = useSelector(({ coffee: { error } }) => error);
 
   if (error) return <ErrorMessage errorMessage={error} />;
 
   return (
     <div className='App'>
+      <Header />
       <main>
-        <h1 className='visually-hidden'>
-          Тестовое задание на junior frontend-разработчика в Альфа-банк
-        </h1>
-        <Section className='cards' title='Список карточек'>
-          <Button
-            className={filterBtnClasses}
-            clickHandler={onFilterCards}
-          >
-            Только с лайками
-          </Button>
-          <CardsListContainer />
+        <Section className='hero' title='Список кофе'>
+          <CoffeeListContainer />
         </Section>
       </main >
     </div>
