@@ -1,18 +1,14 @@
-import Notification from '../Notification/Notification';
+import Notification from '../notification/Notification';
 
+import errorMessageStyles from './ErrorMessage.module.scss';
 import img from './error.gif';
-import './errorMessage.scss';
 
 const ErrorMessage = ({ errorMessage }) => (
-<<<<<<< HEAD
-  <div className={errorMessageStyles.wrapper}>
-=======
-  <div className='error'>
->>>>>>> parent of 7627202 (add css module in ErrorMessage)
+  <div className={errorMessageStyles.error}>
     <img
-      className='error__img'
+      className={errorMessageStyles.img}
       src={img}
-      alt='Error'
+      alt='Ошибка'
     />
     <Notification text={errorMessage} />
   </div>

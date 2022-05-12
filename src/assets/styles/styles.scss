@@ -1,5 +1,6 @@
 @import-normalize;
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import "../../assets/styles/vars.scss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
 
 *,
 *::after,
@@ -10,27 +11,59 @@
 }
 
 html {
-  background-color: #2f3847;
+  background-color: #222832;
 }
 
 ul {
   list-style: none;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  &:focus {
+    outline: 1px solid $white;
+    outline-offset: 2px;
+  }
+}
+
 .App {
-  position: relative;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
     "Helvetica Neue", sans-serif;
-  color: #f1f1f1;
+  color: $white;
   font-size: 18px;
   line-height: 18px;
   font-weight: 400;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }
 
 @media only screen and (max-width: 768px) {
   .App {
     font-size: 14px;
     line-height: 14px;
+  }
+  button {
+    &:focus {
+      outline: none;
+    }
   }
 }

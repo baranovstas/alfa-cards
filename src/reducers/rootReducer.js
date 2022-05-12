@@ -1,7 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import coffee from '../reducers/coffeeSlice';
+import cards from '../reducers/cardsSlice';
 
-const rootReducer = combineReducers({ coffee });
+const rootReducer = combineReducers({ cards });
 
 export default rootReducer;
