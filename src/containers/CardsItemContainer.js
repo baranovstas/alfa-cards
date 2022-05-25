@@ -7,7 +7,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import CardsItem from '../components/cardsItem/CardsItem';
-import Button from '../components/button/Button';
 import Icon from '../components/icon/Icon';
 
 import * as cardsActions from '../reducers/cardsSlice';
@@ -58,22 +57,6 @@ function CardsItemContainer({ id, text, ...props }) {
     },
   ];
 
-  // преобразование данных о группе кнопок в массив компонентов для отображения в интерфейсе
-  const btnsGroup = btnsGroupData.map(
-    function ({ clickHandler, className, label, children }) {
-      return (
-        <Button
-          key={label}
-          clickHandler={clickHandler}
-          className={`${btn} ${className}`}
-          label={label}
-        >
-          {children}
-        </Button>
-      );
-    }
-  );
-
   const cardsText = text.charAt(0).toUpperCase() + text.slice(1);
 
   return (
@@ -81,7 +64,7 @@ function CardsItemContainer({ id, text, ...props }) {
       id={id}
       cardsItemStyles={anotherCardsItemStyles}
       text={cardsText}
-      btnsGroup={btnsGroup}
+      btnsGroupData={btnsGroupData}
       {...props}
     />
   );

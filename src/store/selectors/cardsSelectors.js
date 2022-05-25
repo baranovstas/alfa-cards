@@ -1,6 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-import CardsItemContainer from '../containers/CardsItemContainer';
+import CardsItemContainer from '../../containers/CardsItemContainer';
 
 function selectCardsData({ cards: { cardsData } }) {
   return cardsData;
