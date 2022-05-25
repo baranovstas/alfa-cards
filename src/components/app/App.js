@@ -9,26 +9,31 @@ import { toggleFilter } from '../../reducers/cardsSlice';
 
 import filterStyles from '../../assets/styles/filter.module.scss';
 import '../../assets/styles/styles.scss';
+import { useEffect, useState } from 'react';
 
-function App() {
-  const dispatch = useDispatch();
-
-  const error = useSelector(({ cards: { error } }) => error);
-
-  const isFilteredByLikes = useSelector(
-    ({ cards: { isFilteredByLikes } }) => isFilteredByLikes
-  );
-
-  const { filter, filter_active } = filterStyles;
-
+// App положить рядом index.js
+// Лучше использовать стрелочные функции
+// const App = () => {...}
+const App = () => {
+  // Лучше использовать useState или useRef
   // проверка св-ва isFilteredByLikes для добавления соответствующего класса кнопке фильтрации, чтобы она подсвечивалась, в случае, если фильтр активен
-  const filterBtnClasses = isFilteredByLikes ?
-    `${filter} ${filter_active}` :
-    filter;
+  const [filterBtnClasses, setFilterBtnClasses] = useState()
+
+  // Используй деструктуризацию
+  // const { error, isFilteredByLikes } = useSelector(({ cards }) => cards)
+  // Сэкономишь несколько строчек, и вид более понятный
+  const { error, isFilteredByLikes } = useSelector(({ cards }) => cards);
+
+  const dispatch = useDispatch(); 
+  
+  useEffect(() => {
+    const { filter, filter_active } = filterStyles;
+    setFilterBtnClasses(isFilteredByLikes ? `${filter} ${filter_active}` : filter);
+  }, [isFilteredByLikes])
 
   const onFilterCards = () => dispatch(toggleFilter());
 
-  if (error) return <ErrorMessage errorMessage={error} />;
+  // Условия в теле функционаального компонента - очень плохая практика
 
   return (
     <div className='App'>
@@ -46,6 +51,7 @@ function App() {
           <CardsListContainer />
         </Section>
       </main >
+
     </div>
   );
 }

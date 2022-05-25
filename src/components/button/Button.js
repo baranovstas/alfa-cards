@@ -1,6 +1,6 @@
-function Button({
+const Button = ({
   className, clickHandler = null, label, children
-}) {
+}) => {
   return (
     <button
       className={className}

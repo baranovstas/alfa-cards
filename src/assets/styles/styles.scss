@@ -1,7 +1,7 @@
 @import-normalize;
 @import "../../assets/styles/vars.scss";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
-
+// обрати внимание на styled-component
 *,
 *::after,
 *::before {
@@ -12,6 +12,9 @@
 
 html {
   background-color: #222832;
+  // use rem
+  // 1rem = 10px
+  font-size: 10px;
 }
 
 ul {
@@ -30,7 +33,7 @@ button {
   background-color: transparent;
   cursor: pointer;
   &:focus {
-    outline: 1px solid $white;
+    outline: 0.1rem solid $white;
     outline-offset: 2px;
   }
 }
@@ -40,7 +43,7 @@ button {
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
     "Helvetica Neue", sans-serif;
   color: $white;
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 18px;
   font-weight: 400;
 }
