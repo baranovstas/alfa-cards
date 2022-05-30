@@ -17,7 +17,7 @@ function CardsListContainer() {
     ({ cards: { cardsData } }) => cardsData
   );
 
-  const isFetched = useSelector(
+  const isFetching = useSelector(
     ({ cards: { isFetched } }) => isFetched
   );
 
@@ -31,23 +31,27 @@ function CardsListContainer() {
 
   useEffect(() => {
     dispatch(fetchCardsData());
-  }, [dispatch]);
+  }, []);
 
-  if (!isFetched) return <Spinner />;
+  // забудь про инлайн ифы
+  if (isFetching) {
+    return <Spinner />;
+  }
 
   // следующие условия проверяют весь массив с данными и массив лайкнутых карточек, чтобы показать пользователю соответствующее уведомление - если карточек не осталось в принципе либо если в массиве данных карточки остались, но при этом нет именно лайкнутых карточек
-  if (!cardsData.length) {
+  // ненужный комментарий. проверка должна быть явной, в данной проверке непонятно, что ты проверяешь - наличие свойство length или длину массива
+  if (cardsData.length === 0) {
     return <Notification text='Все карточки удалены' />;
   }
-  else if (
-    cardsData.length &&
-    !likedCards.length &&
+
+  if (
+    likedCards.length === 0 &&
     isFilteredByLikes
   ) {
     return <Notification text='Нет лайкнутых карточек' />;
   }
 
-  return <CardsList cards={cards} />;
+  return <CardsList onClickLike={() => dispatch(deleteLikeAction)} cards={cards} />;
 }
-
+// компоненты нотификации и список карточек лучше вынести в отдельный компонент. Контейнер не должен содержать плогику касательно отображения
 export default CardsListContainer;

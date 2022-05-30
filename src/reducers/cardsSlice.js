@@ -22,14 +22,18 @@ const cardsSlice = createSlice({
   name: 'cards',
 
   initialState: {
-    cardsData: null,
+    // лучше пустой массив
+    cardsData: [],
     likedCards: [],
+    isFetching: false,
     isFetched: false,
     isFilteredByLikes: false,
-    error: false,
+    // null не нужно менять тип данных у переменных
+    error: null,
   },
 
   reducers: {
+    // id вместо payload
     deleteCard(state, { payload }) {
       const { cardsData, likedCards } = state;
 
@@ -41,16 +45,18 @@ const cardsSlice = createSlice({
       );
     },
 
-    likeCard(state, { payload }) {
+    // непонятно, что такое payload, лучше дать ему название { payload: id }
+    // likeOrDislikeCard, toggleLikeCard
+    likeCard(state, { payload: id }) {
       const { likedCards } = state;
 
-      if (likedCards.includes(payload)) {
+      if (likedCards.includes(id)) {
         state.likedCards = likedCards.filter(
-          cardId => cardId !== payload
+          cardId => cardId !== id
         );
       }
       else {
-        state.likedCards.push(payload);
+        state.likedCards.push(id);
       }
     },
 
@@ -66,6 +72,7 @@ const cardsSlice = createSlice({
         fetchCardsData.fulfilled,
         (state, { payload }) => {
           state.cardsData = payload;
+          // is fetching
           state.isFetched = true
         }
       )
@@ -83,6 +90,7 @@ const { actions, reducer } = cardsSlice;
 export default reducer;
 export { fetchCardsData };
 export const {
+  // unused
   setCards,
   setFetched,
   setError,
