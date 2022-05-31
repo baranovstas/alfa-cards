@@ -1,14 +1,7 @@
-function Button({
-  className, clickHandler = null, label, children
-}) {
+// label заменить на title, использовать оригинальные названия, если они просто прокидываются дальше
+function Button({ children, ...props }) {
   return (
-    <button
-      className={className}
-      type='button'
-      onClick={clickHandler}
-      aria-label={label}
-      title={label}
-    >
+    <button type='button' {...props}>
       {children}
     </button>
   );

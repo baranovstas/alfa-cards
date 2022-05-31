@@ -1,6 +1,7 @@
-function Image({ className, src, alt }) {
+// прокидывать пропсы через ...props
+function Image(props) {
   return (
-    <img className={className} src={src} alt={alt} />
+    <img {...props} />
   );
 }
 
